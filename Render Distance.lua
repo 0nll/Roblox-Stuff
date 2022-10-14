@@ -6,11 +6,11 @@
 
 
 -- Ammount of studs before unload --
-local RenderDistance = 100
+local RenderDistance = 50
 
 -- Name of the world folder --
 
-local name = "ChangeMe"
+local Name = "Change Me"
 
 
 
@@ -32,17 +32,17 @@ local Render = Workspacee:WaitForChild(Name)
 local Parts = {}
 
 function Scan()
-    for _, Object in next, Render:GetChildren() do
-			table.insert(Parts, Object)
-			Object.Parent = RenderCache
-		end
+	for _, Object in next, Render:GetChildren() do
+		table.insert(Parts, Object)
+		Object.Parent = RenderCache
 	end
+end
 
 function GetPart (Object)
-		if(Object:IsA("BasePart"))then
-			return Object
-		else 
-			for _, Obj in next, Object:GetChildren() do
+	if(Object:IsA("BasePart"))then
+		return Object
+	else 
+		for _, Obj in next, Object:GetChildren() do
 			return GetPart(Obj)
 		end
 	end
@@ -65,4 +65,4 @@ function Update()
 	end
 end
 Scan()
-	RunService:BindToRenderStep("RenderSys", 1, Update)
+RunService:BindToRenderStep("RenderSys", 1, Update)
