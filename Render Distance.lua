@@ -1,30 +1,34 @@
+-- Place In StarterCharecterScripts --
+-- Make A Folder In Workspace For Your Desired Parts To Unload --
+-- Change Your Settings To Your Desire --
+
 -- Settings --
+
+
+-- Ammount of studs before unload --
 local RenderDistance = 100
 
+-- Name of the world folder --
+
+local name = "ChangeMe"
 
 
 
 
+--------------------------------------------- DONT TOUCH ---------------------------------------------
 
-
-
-
-
-
--- DONT TOUCH --
-
-
+-- locals --
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Workspacee = game:GetService("Workspace")
 local RunService = game:GetService("RunService")
 local RenderCache = Instance.new("Folder")
-RenderCache.Parent = ReplicatedStorage
 RenderCache.Name = "RenderCache"
+RenderCache.Parent = ReplicatedStorage
 local LocalPlayer =  Players.LocalPlayer
 local Charecter = script.Parent
 local HumanoidRootPart = Charecter:WaitForChild("HumanoidRootPart")
-local Render = Workspacee:WaitForChild("Render")
+local Render = Workspacee:WaitForChild(Name)
 local Parts = {}
 
 function Scan()
